@@ -1,0 +1,20 @@
+{
+  "name": "Neo4jSourceConnector",
+  "config": {
+    "value.converter.schemas.enable": "false",
+    "name": "Neo4jSourceConnector",
+    "connector.class": "streams.kafka.connect.source.Neo4jSourceConnector",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "neo4j.authentication.basic.username": "neo4j",
+    "neo4j.authentication.basic.password": "ddi123",
+    "neo4j.server.uri": "neo4j://localhost:7687",
+    "neo4j.encryption.enabled": "false",
+    "neo4j.enforce.schema": "true",
+    "neo4j.streaming.poll.interval.msecs": "5000",
+    "neo4j.streaming.property": "timestamp",
+    "topic": "bmri-test-source",
+    "neo4j.streaming.from": "NOW",
+    "neo4j.source.query": "MATCH (u:User {id:u.id}) RETURN u.username, u.firstname, u.lastname, u.email, u.gender, u.age"
+  }
+}
